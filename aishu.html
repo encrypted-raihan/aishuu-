@@ -1,0 +1,646 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>For My Aishuu ❤️</title>
+<meta name="description" content="A little corner of the internet, made with love for Aishuu." />
+<meta name="theme-color" content="#fde2e4" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Inter:wght@300;400;500;600&family=Dancing+Script:wght@600;700&display=swap" />
+<style>
+/* =========================================================
+   For My Aishuu ❤️  — single-file romantic SPA
+   Palette: blush pink, rose gold, white, subtle purple
+   ========================================================= */
+:root{
+  --rose:#ffb6c1;
+  --rose-deep:#e98aa1;
+  --rose-gold:#e8b4a0;
+  --gold:#d4a574;
+  --blush:#fde2e4;
+  --cream:#fff7f4;
+  --purple:#c9a7eb;
+  --purple-deep:#a07cc9;
+  --ink:#3a2230;
+  --ink-soft:#6b4a5e;
+  --white:#ffffff;
+  --glass:rgba(255,255,255,.55);
+  --glass-strong:rgba(255,255,255,.72);
+  --glass-border:rgba(255,255,255,.7);
+  --shadow-rose:0 20px 60px -20px rgba(233,138,161,.45);
+  --shadow-soft:0 10px 40px -10px rgba(160,124,201,.25);
+  --grad-bg:radial-gradient(1200px 800px at 10% 10%, #ffe4ec 0%, transparent 60%),
+            radial-gradient(1000px 700px at 90% 20%, #f8e1ff 0%, transparent 55%),
+            radial-gradient(1200px 900px at 50% 100%, #ffe9dd 0%, transparent 60%),
+            linear-gradient(180deg, #fff7f4 0%, #fde7ee 50%, #f6e6ff 100%);
+  --grad-rose:linear-gradient(135deg,#ffb6c1 0%,#e8b4a0 50%,#c9a7eb 100%);
+  --grad-text:linear-gradient(135deg,#e98aa1 0%,#d4a574 50%,#a07cc9 100%);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  color:var(--ink);
+  background:var(--grad-bg);
+  background-attachment:fixed;
+  min-height:100vh;
+  overflow-x:hidden;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3{font-family:'Playfair Display',Georgia,serif;font-weight:700;letter-spacing:-.01em;line-height:1.15;color:var(--ink)}
+.script{font-family:'Dancing Script',cursive;font-weight:700}
+.gradient-text{
+  background:var(--grad-text);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:transparent;
+}
+section{position:relative;padding:clamp(72px,12vw,140px) clamp(20px,5vw,40px);max-width:1200px;margin:0 auto}
+.section-title{font-size:clamp(2rem,5vw,3.25rem);text-align:center;margin-bottom:.5rem}
+.section-sub{text-align:center;color:var(--ink-soft);max-width:560px;margin:0 auto 3.5rem;font-size:1.05rem}
+/* ============ Particles + floating hearts (fixed bg) ============ */
+#particles{position:fixed;inset:0;pointer-events:none;z-index:0}
+.hearts-bg{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.hearts-bg .h{
+  position:absolute;bottom:-40px;font-size:18px;opacity:.55;
+  animation:float-up linear infinite;will-change:transform,opacity;
+  filter:drop-shadow(0 4px 10px rgba(233,138,161,.35));
+}
+@keyframes float-up{
+  0%{transform:translate(0,0) rotate(0);opacity:0}
+  10%{opacity:.7}
+  100%{transform:translate(var(--dx,40px),-110vh) rotate(360deg);opacity:0}
+}
+main{position:relative;z-index:1}
+/* ============ HERO ============ */
+.hero{
+  min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding-top:80px;padding-bottom:80px;
+}
+.hero .badge{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:8px 18px;border-radius:999px;
+  background:var(--glass);backdrop-filter:blur(16px) saturate(140%);
+  border:1px solid var(--glass-border);
+  font-size:.85rem;color:var(--ink-soft);letter-spacing:.18em;text-transform:uppercase;
+  box-shadow:var(--shadow-soft);
+  animation:fade-down .9s .1s both;
+}
+.hero h1{
+  margin-top:28px;font-size:clamp(2.6rem,8vw,5.5rem);font-style:italic;font-weight:500;
+  min-height:1.2em;
+}
+.hero .cursor{display:inline-block;width:3px;height:.95em;background:var(--rose-deep);margin-left:6px;vertical-align:-.08em;animation:blink 1s steps(1) infinite;border-radius:2px}
+@keyframes blink{50%{opacity:0}}
+.hero p.sub{
+  margin-top:22px;font-size:clamp(1.05rem,2.2vw,1.35rem);color:var(--ink-soft);
+  max-width:640px;min-height:3.4em;
+}
+.scroll-ind{
+  position:absolute;bottom:28px;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--ink-soft);
+  font-size:.78rem;letter-spacing:.25em;text-transform:uppercase;
+  animation:fade-in 1.4s 2.2s both;
+}
+.scroll-ind .chev{
+  width:30px;height:48px;border-radius:16px;border:1.5px solid rgba(106,74,94,.35);
+  display:flex;justify-content:center;padding-top:8px;
+  background:var(--glass);backdrop-filter:blur(8px);
+}
+.scroll-ind .chev span{width:4px;height:8px;background:var(--rose-deep);border-radius:4px;animation:scroll-dot 1.8s ease-in-out infinite}
+@keyframes scroll-dot{0%{transform:translateY(0);opacity:1}80%{transform:translateY(18px);opacity:0}100%{opacity:0}}
+@keyframes fade-down{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fade-in{from{opacity:0}to{opacity:1}}
+/* ============ Reveal-on-scroll ============ */
+.reveal{opacity:0;transform:translateY(30px) scale(.98);transition:opacity .9s ease,transform .9s cubic-bezier(.22,.61,.36,1)}
+.reveal.in{opacity:1;transform:none}
+/* ============ Glass card base ============ */
+.glass{
+  background:var(--glass);
+  backdrop-filter:blur(22px) saturate(150%);
+  border:1px solid var(--glass-border);
+  border-radius:24px;
+  box-shadow:var(--shadow-rose);
+}
+/* ============ Special cards grid ============ */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px}
+.card{
+  padding:32px 28px;border-radius:22px;
+  background:var(--glass);backdrop-filter:blur(20px) saturate(140%);
+  border:1px solid var(--glass-border);
+  box-shadow:var(--shadow-soft);
+  transition:transform .5s cubic-bezier(.22,.61,.36,1),box-shadow .5s;
+  position:relative;overflow:hidden;
+}
+.card::before{
+  content:"";position:absolute;inset:-1px;border-radius:inherit;padding:1px;
+  background:linear-gradient(135deg,rgba(255,182,193,.7),rgba(201,167,235,.5));
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;opacity:.6;
+}
+.card:hover{transform:translateY(-6px);box-shadow:var(--shadow-rose)}
+.card .ico{font-size:1.6rem;margin-bottom:12px;display:inline-block;filter:drop-shadow(0 4px 12px rgba(233,138,161,.4))}
+.card h3{font-size:1.15rem;margin-bottom:6px}
+.card p{color:var(--ink-soft);font-size:.98rem}
+/* ============ Timeline ============ */
+.timeline{position:relative;max-width:780px;margin:0 auto;padding:20px 0}
+.timeline::before{
+  content:"";position:absolute;left:50%;top:0;bottom:0;width:2px;transform:translateX(-50%);
+  background:linear-gradient(180deg,transparent,var(--rose),var(--purple),transparent);
+  box-shadow:0 0 20px rgba(233,138,161,.4);
+}
+.t-item{position:relative;width:50%;padding:18px 36px;margin-bottom:20px}
+.t-item:nth-child(odd){left:0;text-align:right}
+.t-item:nth-child(even){left:50%}
+.t-dot{
+  position:absolute;top:32px;width:18px;height:18px;border-radius:50%;
+  background:radial-gradient(circle,#fff 0%,var(--rose) 60%,var(--rose-deep) 100%);
+  box-shadow:0 0 0 4px rgba(255,255,255,.7),0 0 24px var(--rose-deep);
+  animation:pulse-dot 2.4s ease-in-out infinite;
+}
+.t-item:nth-child(odd) .t-dot{right:-9px}
+.t-item:nth-child(even) .t-dot{left:-9px}
+@keyframes pulse-dot{0%,100%{box-shadow:0 0 0 4px rgba(255,255,255,.7),0 0 14px var(--rose-deep)}50%{box-shadow:0 0 0 4px rgba(255,255,255,.7),0 0 30px var(--rose-deep)}}
+.t-card{
+  display:inline-block;padding:18px 22px;border-radius:18px;
+  background:var(--glass-strong);backdrop-filter:blur(16px);
+  border:1px solid var(--glass-border);box-shadow:var(--shadow-soft);
+  max-width:100%;
+}
+.t-card .when{font-family:'Dancing Script',cursive;font-size:1.15rem;color:var(--rose-deep);margin-bottom:4px}
+.t-card .what{color:var(--ink);font-weight:500}
+@media (max-width:680px){
+  .timeline::before{left:18px}
+  .t-item,.t-item:nth-child(even){width:100%;left:0;text-align:left;padding-left:48px;padding-right:8px}
+  .t-item:nth-child(odd){text-align:left}
+  .t-item .t-dot{left:9px!important;right:auto!important}
+}
+/* ============ Bucket list ============ */
+.bucket{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.b-item{
+  display:flex;align-items:center;gap:14px;padding:20px 22px;border-radius:18px;
+  background:var(--glass);backdrop-filter:blur(18px);border:1px solid var(--glass-border);
+  box-shadow:var(--shadow-soft);cursor:pointer;user-select:none;
+  transition:transform .35s,box-shadow .35s,background .35s;
+  position:relative;overflow:hidden;
+}
+.b-item:hover{transform:translateY(-4px) scale(1.01);box-shadow:var(--shadow-rose)}
+.b-check{
+  flex:0 0 28px;height:28px;border-radius:50%;border:2px solid var(--rose-deep);
+  display:flex;align-items:center;justify-content:center;color:transparent;font-size:1rem;
+  transition:.3s;
+}
+.b-item.done .b-check{background:var(--rose-deep);color:#fff;transform:rotate(360deg)}
+.b-item.done .b-text{text-decoration:line-through;color:var(--ink-soft)}
+.b-text{font-weight:500}
+/* ============ Open When envelopes ============ */
+.envelopes{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+.env{
+  aspect-ratio:5/3;border-radius:18px;cursor:pointer;position:relative;
+  background:linear-gradient(160deg,#fff 0%,#fde7ee 60%,#f6e6ff 100%);
+  border:1px solid var(--glass-border);
+  box-shadow:var(--shadow-soft);
+  overflow:hidden;transition:transform .5s cubic-bezier(.22,.61,.36,1),box-shadow .5s;
+  display:flex;align-items:center;justify-content:center;text-align:center;padding:18px;
+}
+.env::before,.env::after{
+  content:"";position:absolute;left:0;right:0;height:50%;
+  background:linear-gradient(135deg,#ffe2ea,#f4d8ff);
+  transition:transform .6s cubic-bezier(.22,.61,.36,1);pointer-events:none;
+}
+.env::before{top:0;clip-path:polygon(0 0,100% 0,50% 80%);box-shadow:inset 0 -1px 0 rgba(0,0,0,.04)}
+.env::after{bottom:0;background:linear-gradient(180deg,#fff 0%,#ffeaf0 100%)}
+.env:hover{transform:translateY(-6px) rotate(-.5deg);box-shadow:var(--shadow-rose)}
+.env:hover::before{transform:translateY(-30%) rotate(-2deg)}
+.env span{position:relative;z-index:2;font-family:'Dancing Script',cursive;font-size:1.5rem;color:var(--ink);text-shadow:0 1px 0 rgba(255,255,255,.6)}
+.env .seal{position:absolute;z-index:3;top:50%;left:50%;transform:translate(-50%,-50%);width:36px;height:36px;border-radius:50%;background:var(--grad-rose);display:flex;align-items:center;justify-content:center;color:#fff;font-size:.9rem;box-shadow:0 6px 20px rgba(233,138,161,.5)}
+/* ============ Modal ============ */
+.modal-back{
+  position:fixed;inset:0;background:rgba(58,34,48,.45);backdrop-filter:blur(8px);
+  display:none;align-items:center;justify-content:center;z-index:100;padding:20px;
+  opacity:0;transition:opacity .35s;
+}
+.modal-back.show{display:flex;opacity:1}
+.modal{
+  max-width:520px;width:100%;padding:36px 32px;border-radius:24px;
+  background:linear-gradient(160deg,#fff,#fff5f8);
+  border:1px solid var(--glass-border);box-shadow:0 30px 80px -20px rgba(58,34,48,.4);
+  transform:scale(.92) translateY(10px);transition:transform .45s cubic-bezier(.22,.61,.36,1);
+  position:relative;
+}
+.modal-back.show .modal{transform:none}
+.modal h3{font-style:italic;margin-bottom:14px;font-size:1.6rem}
+.modal p{color:var(--ink-soft);font-size:1.02rem;white-space:pre-line}
+.modal .x{position:absolute;top:14px;right:16px;width:34px;height:34px;border-radius:50%;border:none;background:rgba(0,0,0,.05);cursor:pointer;font-size:1rem;color:var(--ink)}
+.modal .x:hover{background:rgba(0,0,0,.1)}
+/* ============ Counter ============ */
+.counter-wrap{text-align:center}
+.counter{
+  font-family:'Playfair Display',serif;font-weight:700;
+  font-size:clamp(4rem,14vw,9rem);line-height:1;
+  background:var(--grad-text);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;
+  filter:drop-shadow(0 12px 30px rgba(233,138,161,.35));
+}
+.counter-label{font-family:'Dancing Script',cursive;font-size:1.6rem;color:var(--ink-soft);margin-top:8px}
+.counter-foot{margin-top:24px;color:var(--ink-soft);font-style:italic}
+/* ============ Letter ============ */
+.letter{
+  max-width:720px;margin:0 auto;padding:clamp(28px,5vw,56px);
+  background:linear-gradient(160deg,#fffaf6 0%,#fff 50%,#fdf1f6 100%);
+  border:1px solid var(--glass-border);border-radius:28px;
+  box-shadow:0 30px 80px -30px rgba(233,138,161,.4);position:relative;
+}
+.letter::before{content:"";position:absolute;inset:8px;border-radius:22px;border:1px dashed rgba(233,138,161,.35);pointer-events:none}
+.letter h3{font-style:italic;font-size:clamp(1.6rem,3.4vw,2.2rem);margin-bottom:18px}
+.letter .body{font-size:1.05rem;color:var(--ink);line-height:1.85;white-space:pre-line}
+.letter .sig{margin-top:24px;text-align:right;font-family:'Dancing Script',cursive;font-size:2.2rem;color:var(--rose-deep)}
+/* ============ Question / YES NO ============ */
+.q-section{text-align:center}
+.q-section h2{font-size:clamp(2rem,5.5vw,3.4rem);font-style:italic}
+.btn-row{display:flex;justify-content:center;gap:24px;margin-top:40px;flex-wrap:wrap;position:relative;min-height:120px}
+.btn-yes{
+  padding:22px 56px;border-radius:999px;border:none;cursor:pointer;
+  font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:#fff;
+  background:var(--grad-rose);background-size:200% 200%;
+  box-shadow:0 20px 50px -10px rgba(233,138,161,.7),0 0 0 0 rgba(233,138,161,.5);
+  transition:transform .25s,box-shadow .25s,background-position .8s;
+  animation:yes-glow 2.4s ease-in-out infinite;
+}
+.btn-yes:hover{transform:translateY(-3px) scale(1.04);background-position:100% 100%}
+@keyframes yes-glow{0%,100%{box-shadow:0 20px 50px -10px rgba(233,138,161,.7),0 0 0 0 rgba(233,138,161,.5)}50%{box-shadow:0 25px 60px -10px rgba(233,138,161,.9),0 0 0 14px rgba(233,138,161,0)}}
+.btn-no{
+  padding:14px 30px;border-radius:999px;border:1px solid rgba(58,34,48,.15);cursor:pointer;
+  font-family:'Inter',sans-serif;font-size:1rem;color:var(--ink-soft);background:#fff;
+  transition:transform .25s cubic-bezier(.22,.61,.36,1),left .35s,top .35s;
+  position:relative;
+}
+.taunt{margin-top:24px;font-family:'Dancing Script',cursive;font-size:1.4rem;color:var(--rose-deep);min-height:1.8em;opacity:0;transition:opacity .4s}
+.taunt.show{opacity:1}
+/* ============ Final takeover ============ */
+.takeover{
+  position:fixed;inset:0;z-index:200;display:none;flex-direction:column;align-items:center;justify-content:center;text-align:center;
+  background:radial-gradient(circle at 50% 40%,#fff 0%,#ffe1ea 40%,#f3d6ff 80%,#e8b4a0 100%);
+  padding:30px;
+}
+.takeover.show{display:flex;animation:fade-in .6s both}
+.takeover h2{font-size:clamp(2rem,7vw,4.4rem);font-style:italic}
+.takeover p{margin-top:14px;max-width:560px;color:var(--ink-soft);font-size:1.15rem}
+.takeover .hug-btn{
+  margin-top:32px;padding:18px 40px;border-radius:999px;border:none;cursor:pointer;
+  font-family:'Playfair Display',serif;font-size:1.2rem;color:#fff;background:var(--grad-rose);
+  box-shadow:var(--shadow-rose);
+}
+/* ============ Footer ============ */
+footer{
+  text-align:center;padding:40px 20px 60px;color:var(--ink-soft);font-family:'Dancing Script',cursive;font-size:1.3rem;
+}
+footer .heart{display:inline-block;animation:beat 1.4s ease-in-out infinite;color:var(--rose-deep)}
+@keyframes beat{0%,100%{transform:scale(1)}30%{transform:scale(1.25)}60%{transform:scale(.95)}}
+/* Confetti / explosion canvases sit above everything but below takeover content */
+#fx{position:fixed;inset:0;pointer-events:none;z-index:150}
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:.01ms!important;transition-duration:.01ms!important}
+  .hearts-bg{display:none}
+}
+</style>
+</head>
+<body>
+<!-- Floating background hearts (generated by JS) -->
+<div class="hearts-bg" id="heartsBg" aria-hidden="true"></div>
+<canvas id="particles" aria-hidden="true"></canvas>
+<canvas id="fx" aria-hidden="true"></canvas>
+<main>
+  <!-- ========== HERO ========== -->
+  <section class="hero" id="top">
+    <span class="badge">by Ikkachii 💋</span>
+    <h1><span id="type1"></span><span class="cursor" id="cursor1"></span></h1>
+    <p class="sub" id="type2"></p>
+    <div class="scroll-ind" aria-hidden="true">
+      <span>scroll</span>
+      <div class="chev"><span></span></div>
+    </div>
+  </section>
+  <!-- ========== WHY YOU'RE SPECIAL ========== -->
+  <section id="why">
+    <h2 class="section-title reveal">Why you're <span class="gradient-text">special</span></h2>
+    <p class="section-sub reveal">Little truths I keep noticing about you.</p>
+    <div class="cards">
+      <div class="card reveal"><div class="ico">🌸</div><h3>Your smile</h3><p>Makes ordinary days quietly better.</p></div>
+      <div class="card reveal"><div class="ico">💭</div><h3>You understand</h3><p>You make me feel understood without me explaining.</p></div>
+      <div class="card reveal"><div class="ico">🕊️</div><h3>You bring peace</h3><p>Being around you slows my heart in the best way.</p></div>
+      <div class="card reveal"><div class="ico">✨</div><h3>The future, with you</h3><p>You make me excited about every tomorrow.</p></div>
+      <div class="card reveal"><div class="ico">📱</div><h3>Favorite notification</h3><p>My phone lights up and so do I.</p></div>
+      <div class="card reveal"><div class="ico">💬</div><h3>Simple conversations</h3><p>Somehow, even the smallest talks with you become memories.</p></div>
+    </div>
+  </section>
+  <!-- ========== OUR STORY ========== -->
+  <section id="story">
+    <h2 class="section-title reveal">Our <span class="gradient-text">story</span></h2>
+    <p class="section-sub reveal">A timeline of small forevers.</p>
+    <div class="timeline">
+      <div class="t-item reveal"><div class="t-dot"></div><div class="t-card"><div class="when">Chapter one</div><div class="what">The day we first met</div></div></div>
+      <div class="t-item reveal"><div class="t-dot"></div><div class="t-card"><div class="when">Hello, you</div><div class="what">Our very first conversation</div></div></div>
+      <div class="t-item reveal"><div class="t-dot"></div><div class="t-card"><div class="when">Just ours</div><div class="what">The first inside joke only we get</div></div></div>
+      <div class="t-item reveal"><div class="t-dot"></div><div class="t-card"><div class="when">The realization</div><div class="what">The moment I knew you were different</div></div></div>
+      <div class="t-item reveal"><div class="t-dot"></div><div class="t-card"><div class="when">Today</div><div class="what">Writing this, thinking about you</div></div></div>
+      <div class="t-item reveal"><div class="t-dot"></div><div class="t-card"><div class="when">To be continued…</div><div class="what">Countless beautiful memories ahead</div></div></div>
+    </div>
+  </section>
+  <!-- ========== BUCKET LIST ========== -->
+  <section id="bucket">
+    <h2 class="section-title reveal">Things I want to do <span class="gradient-text">with you</span></h2>
+    <p class="section-sub reveal">Tap any wish to mark it on our list.</p>
+    <div class="bucket" id="bucketList">
+      <div class="b-item reveal"><div class="b-check">✓</div><div class="b-text">Watch a sunrise together 🌅</div></div>
+      <div class="b-item reveal"><div class="b-check">✓</div><div class="b-text">Go on a long, music-filled drive 🚗</div></div>
+      <div class="b-item reveal"><div class="b-check">✓</div><div class="b-text">A whole-night movie marathon 🎬</div></div>
+      <div class="b-item reveal"><div class="b-check">✓</div><div class="b-text">Explore a brand new place 🌍</div></div>
+      <div class="b-item reveal"><div class="b-check">✓</div><div class="b-text">Make countless little memories 📸</div></div>
+      <div class="b-item reveal"><div class="b-check">✓</div><div class="b-text">Grow, together, slowly 🌱</div></div>
+    </div>
+  </section>
+  <!-- ========== OPEN WHEN ========== -->
+  <section id="openwhen">
+    <h2 class="section-title reveal">Open when <span class="gradient-text">…</span></h2>
+    <p class="section-sub reveal">Little letters for the moments you might need them.</p>
+    <div class="envelopes" id="envelopes">
+      <div class="env reveal" data-key="sad"><span>open when<br/>you're sad</span><div class="seal">❤</div></div>
+      <div class="env reveal" data-key="miss"><span>open when<br/>you miss me</span><div class="seal">❤</div></div>
+      <div class="env reveal" data-key="motiv"><span>open when<br/>you need motivation</span><div class="seal">❤</div></div>
+      <div class="env reveal" data-key="over"><span>open when<br/>you're overthinking</span><div class="seal">❤</div></div>
+      <div class="env reveal" data-key="smile"><span>open when<br/>you want to smile</span><div class="seal">❤</div></div>
+    </div>
+  </section>
+  <!-- ========== COUNTER ========== -->
+  <section id="counter">
+    <div class="counter-wrap reveal">
+      <div class="counter-label">Reasons I love</div>
+      <div class="counter" id="counter">0</div>
+      <div class="counter-label script">Aishuu</div>
+      <p class="counter-foot">And I'm still discovering more every day ❤️</p>
+    </div>
+  </section>
+  <!-- ========== LOVE LETTER ========== -->
+  <section id="letter">
+    <h2 class="section-title reveal">A letter for <span class="gradient-text">you</span></h2>
+    <div class="letter reveal">
+      <h3>Aishuu,</h3>
+      <div class="body">I never imagined a person could become such an important part of my thoughts so naturally. You bring happiness into ordinary moments, and somehow every day feels brighter because you're in it.
+You make me smile without trying, comfort me without realizing it, and inspire me simply by being yourself.
+No matter what happens, I will always cherish the connection we share and the memories we continue to create.
+Thank you for being you.</div>
+      <div class="sig">— yours, always ❤</div>
+    </div>
+  </section>
+  <!-- ========== QUESTION ========== -->
+  <section id="question" class="q-section">
+    <h2 class="reveal">One important <span class="gradient-text">question…</span></h2>
+    <p class="section-sub reveal">Aishuu, will you keep being mine?</p>
+    <div class="btn-row" id="btnRow">
+      <button class="btn-yes" id="btnYes">YES ❤️</button>
+      <button class="btn-no" id="btnNo">NO 💔</button>
+    </div>
+    <div class="taunt" id="taunt"></div>
+  </section>
+</main>
+<footer>Made with <span class="heart">❤</span> for Aishuu by Ikkachii</footer>
+<!-- ========== Modal ========== -->
+<div class="modal-back" id="modalBack" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal">
+    <button class="x" id="modalClose" aria-label="Close">✕</button>
+    <h3 id="modalTitle"></h3>
+    <p id="modalBody"></p>
+  </div>
+</div>
+
+<script>
+/* =========================================================
+   JS — kept small, dependency-free, commented by section
+   ========================================================= */
+(() => {
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  /* ---------- Typewriter ---------- */
+  const type = (el, text, speed=55) => new Promise(res => {
+    let i=0; const tick = () => {
+      el.textContent = text.slice(0,++i);
+      if (i<text.length) setTimeout(tick, speed); else res();
+    }; tick();
+  });
+  (async () => {
+    const t1 = document.getElementById('type1');
+    const c1 = document.getElementById('cursor1');
+    const t2 = document.getElementById('type2');
+    await type(t1, 'Dear Aishuu...', 90);
+    await new Promise(r=>setTimeout(r,500));
+    c1.style.display='none';
+    await type(t2, 'This little corner of the internet exists because you make my world brighter.', 28);
+  })();
+  /* ---------- Floating hearts (DOM, lightweight) ---------- */
+  const heartsBg = document.getElementById('heartsBg');
+  const HEARTS = ['❤','💕','💗','🌸','✨','💖'];
+  const spawnHeart = () => {
+    const h = document.createElement('span');
+    h.className='h'; h.textContent = HEARTS[(Math.random()*HEARTS.length)|0];
+    const size = 12 + Math.random()*22;
+    h.style.left = Math.random()*100+'vw';
+    h.style.fontSize = size+'px';
+    h.style.setProperty('--dx',(Math.random()*120-60)+'px');
+    const dur = 9 + Math.random()*10;
+    h.style.animationDuration = dur+'s';
+    h.style.opacity = .35 + Math.random()*.45;
+    heartsBg.appendChild(h);
+    setTimeout(()=>h.remove(), dur*1000+200);
+  };
+  if (!reduced) { for (let i=0;i<14;i++) setTimeout(spawnHeart, i*400); setInterval(spawnHeart, 700); }
+  /* ---------- Particle canvas (soft dust) ---------- */
+  const pc = document.getElementById('particles');
+  const pctx = pc.getContext('2d');
+  let parts=[];
+  const resize = () => { pc.width=innerWidth*devicePixelRatio; pc.height=innerHeight*devicePixelRatio; pc.style.width=innerWidth+'px'; pc.style.height=innerHeight+'px'; };
+  resize(); addEventListener('resize', resize);
+  const initParts = () => {
+    parts = Array.from({length: Math.min(70, Math.floor(innerWidth/24))}, () => ({
+      x: Math.random()*pc.width, y: Math.random()*pc.height,
+      r: (Math.random()*2+.6)*devicePixelRatio,
+      vx:(Math.random()-.5)*.2*devicePixelRatio,
+      vy:(Math.random()-.5)*.2*devicePixelRatio,
+      a: .15 + Math.random()*.35,
+      c: Math.random()<.5 ? '#ffb6c1' : (Math.random()<.5?'#c9a7eb':'#e8b4a0')
+    }));
+  };
+  initParts();
+  const drawParts = () => {
+    pctx.clearRect(0,0,pc.width,pc.height);
+    parts.forEach(p=>{
+      p.x+=p.vx; p.y+=p.vy;
+      if(p.x<0)p.x=pc.width; if(p.x>pc.width)p.x=0;
+      if(p.y<0)p.y=pc.height; if(p.y>pc.height)p.y=0;
+      pctx.beginPath(); pctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      pctx.fillStyle=p.c; pctx.globalAlpha=p.a; pctx.fill();
+    });
+    pctx.globalAlpha=1;
+    requestAnimationFrame(drawParts);
+  };
+  if (!reduced) drawParts();
+  /* ---------- Reveal on scroll ---------- */
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach((e,i)=>{ if(e.isIntersecting){ setTimeout(()=>e.target.classList.add('in'), i*60); io.unobserve(e.target);} });
+  }, {threshold:.15});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  /* ---------- Bucket list ---------- */
+  document.querySelectorAll('.b-item').forEach(it=>{
+    it.addEventListener('click', ()=>{
+      it.classList.toggle('done');
+      if (it.classList.contains('done')) burst(it, 8);
+    });
+  });
+  /* ---------- Open-when modal ---------- */
+  const LETTERS = {
+    sad:   {t:"When you're sad", b:"Hey Aishuu — breathe. This feeling will pass like every cloud does. You are not alone in it; I am thinking of you right now, holding you in my heart. Be soft with yourself. The world is better simply because you're in it, and I love you more than any bad day can dim. 💗"},
+    miss:  {t:"When you miss me", b:"I miss you too — probably at the exact same moment. Close your eyes; I'm there. Remember the last time we laughed until our cheeks hurt? Hold onto that. Distance is just a chapter, not the story. Yours, always."},
+    motiv: {t:"When you need motivation", b:"Aishuu, you have done hard things before and you will again. You are smarter, kinder, and stronger than you give yourself credit for. Take one tiny step. Then the next. I'm cheering for you from wherever I am — loudly. You've got this. ✨"},
+    over:  {t:"When you're overthinking", b:"Pause. Drink some water. Most of the scary stories in your head will never happen. You are loved exactly as you are — no performance required. I'm not going anywhere. Let your shoulders drop. Breathe in for 4, out for 6. I've got you. 🕊️"},
+    smile: {t:"When you want to smile", b:"You're my favorite person, did you know that? Your laugh is the best sound I've ever heard, and just thinking about you is making me grin like an idiot right now. Go look in the mirror — there's my favorite human. 😊❤️"}
+  };
+  const back = document.getElementById('modalBack');
+  const mt = document.getElementById('modalTitle');
+  const mb = document.getElementById('modalBody');
+  const closeModal = () => back.classList.remove('show');
+  document.querySelectorAll('.env').forEach(e=>{
+    e.addEventListener('click', ()=>{
+      const k = e.dataset.key;
+      mt.textContent = LETTERS[k].t;
+      mb.textContent = LETTERS[k].b;
+      back.classList.add('show');
+    });
+  });
+  document.getElementById('modalClose').addEventListener('click', closeModal);
+  back.addEventListener('click', (e)=>{ if(e.target===back) closeModal(); });
+  addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeModal(); });
+  /* ---------- Counter (animate when in view) ---------- */
+  const counter = document.getElementById('counter');
+  const TARGET = 1247;
+  let counted=false;
+  new IntersectionObserver((es)=>{
+    es.forEach(e=>{
+      if(e.isIntersecting && !counted){
+        counted=true;
+        const start=performance.now(), dur=2600;
+        const step=(t)=>{
+          const p=Math.min(1,(t-start)/dur);
+          const eased = 1-Math.pow(1-p,3);
+          counter.textContent = Math.floor(eased*TARGET).toLocaleString();
+          if(p<1) requestAnimationFrame(step);
+          else counter.textContent = TARGET.toLocaleString()+'+';
+        };
+        requestAnimationFrame(step);
+      }
+    });
+  },{threshold:.5}).observe(counter);
+  /* ---------- NO button: runs away ---------- */
+  const row = document.getElementById('btnRow');
+  const no = document.getElementById('btnNo');
+  const taunt = document.getElementById('taunt');
+  const TAUNTS = ["Nice try, Aishuu 😝","Not happening 😂","Wrong answer ❤️","You almost got it 😏","This button is shy 🙈","Try the other one 😉"];
+  let dodges=0;
+  no.style.position='relative';
+  const moveNo = () => {
+    const r = row.getBoundingClientRect();
+    const w = no.offsetWidth, h = no.offsetHeight;
+    const maxX = Math.max(20, r.width - w - 20);
+    const maxY = Math.max(40, Math.min(220, r.height + 80));
+    const nx = Math.random()*maxX - maxX/2;
+    const ny = (Math.random()*maxY - maxY/2);
+    no.style.transform = `translate(${nx}px, ${ny}px) rotate(${(Math.random()*30-15).toFixed(1)}deg)`;
+    dodges++;
+    if (dodges>1) {
+      taunt.textContent = TAUNTS[(dodges-2) % TAUNTS.length];
+      taunt.classList.add('show');
+    }
+  };
+  // Desktop: dodge when cursor gets close
+  addEventListener('mousemove', (e)=>{
+    const r = no.getBoundingClientRect();
+    const cx = r.left + r.width/2, cy = r.top + r.height/2;
+    const d = Math.hypot(e.clientX-cx, e.clientY-cy);
+    if (d < 90) moveNo();
+  });
+  // Mobile/touch: dodge on attempted tap
+  no.addEventListener('touchstart', (e)=>{ e.preventDefault(); moveNo(); }, {passive:false});
+  no.addEventListener('pointerdown', (e)=>{ if(e.pointerType==='touch'){ e.preventDefault(); moveNo(); } });
+  no.addEventListener('click', (e)=>{ e.preventDefault(); moveNo(); });
+  /* ---------- YES → takeover, confetti, hearts ---------- */
+  const fx = document.getElementById('fx');
+  const fctx = fx.getContext('2d');
+  const fxResize = () => { fx.width=innerWidth*devicePixelRatio; fx.height=innerHeight*devicePixelRatio; fx.style.width=innerWidth+'px'; fx.style.height=innerHeight+'px'; };
+  fxResize(); addEventListener('resize', fxResize);
+  // Confetti
+  const COLORS = ['#ffb6c1','#e98aa1','#e8b4a0','#d4a574','#c9a7eb','#a07cc9','#ffffff'];
+  let confetti=[];
+  const launchConfetti = (n=180) => {
+    for(let i=0;i<n;i++){
+      confetti.push({
+        x: fx.width/2, y: fx.height/3,
+        vx:(Math.random()-.5)*16*devicePixelRatio,
+        vy:(Math.random()*-14 - 4)*devicePixelRatio,
+        g:.4*devicePixelRatio,
+        s:(4+Math.random()*6)*devicePixelRatio,
+        c:COLORS[(Math.random()*COLORS.length)|0],
+        r:Math.random()*Math.PI, vr:(Math.random()-.5)*.3,
+        life: 180+Math.random()*120
+      });
+    }
+    if(!loopRunning) confettiLoop();
+  };
+  let loopRunning=false;
+  const confettiLoop = () => {
+    loopRunning=true;
+    fctx.clearRect(0,0,fx.width,fx.height);
+    confetti.forEach(p=>{
+      p.x+=p.vx; p.y+=p.vy; p.vy+=p.g; p.r+=p.vr; p.life--;
+      fctx.save(); fctx.translate(p.x,p.y); fctx.rotate(p.r);
+      fctx.fillStyle=p.c; fctx.fillRect(-p.s/2,-p.s/2,p.s,p.s*.6);
+      fctx.restore();
+    });
+    confetti = confetti.filter(p=>p.life>0 && p.y<fx.height+40);
+    if(confetti.length){ requestAnimationFrame(confettiLoop); } else { loopRunning=false; fctx.clearRect(0,0,fx.width,fx.height); }
+  };
+  // Small DOM heart burst from an element
+  function burst(el, n=14){
+    const r = el.getBoundingClientRect();
+    const cx = r.left + r.width/2, cy = r.top + r.height/2;
+    for(let i=0;i<n;i++){
+      const h = document.createElement('span');
+      h.textContent = HEARTS[(Math.random()*HEARTS.length)|0];
+      h.style.cssText = `position:fixed;left:${cx}px;top:${cy}px;font-size:${14+Math.random()*16}px;pointer-events:none;z-index:160;transition:transform 1.2s cubic-bezier(.22,.61,.36,1),opacity 1.2s;`;
+      document.body.appendChild(h);
+      const ang = Math.random()*Math.PI*2;
+      const dist = 60 + Math.random()*140;
+      requestAnimationFrame(()=>{
+        h.style.transform = `translate(${Math.cos(ang)*dist}px, ${Math.sin(ang)*dist - 40}px) scale(${.6+Math.random()*.8})`;
+        h.style.opacity = '0';
+      });
+      setTimeout(()=>h.remove(), 1300);
+    }
+  }
+  const takeover = document.getElementById('takeover');
+  document.getElementById('btnYes').addEventListener('click', (e)=>{
+    burst(e.currentTarget, 24);
+    launchConfetti(220);
+    setTimeout(()=>{ takeover.classList.add('show'); launchConfetti(120); }, 350);
+  });
+  const HUGS = ["*biggest hug ever* 🤗","consider yourself squeezed 💞","hug delivered — express ❤️","one more, just because 🥰"];
+  let hugI=0;
+  const hugMsg = document.getElementById('hugMsg');
+  document.getElementById('hugBtn').addEventListener('click', (e)=>{
+    burst(e.currentTarget, 18);
+    launchConfetti(80);
+    hugMsg.textContent = HUGS[hugI++ % HUGS.length];
+    hugMsg.style.opacity = 1;
+  });
+})();
+</script>
+</body>
+</html>
