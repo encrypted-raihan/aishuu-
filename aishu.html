@@ -236,15 +236,73 @@ main{position:relative;z-index:1}
 .modal .x{position:absolute;top:14px;right:16px;width:34px;height:34px;border-radius:50%;border:none;background:rgba(0,0,0,.05);cursor:pointer;font-size:1rem;color:var(--ink)}
 .modal .x:hover{background:rgba(0,0,0,.1)}
 /* ============ Counter ============ */
-.counter-wrap{text-align:center}
-.counter{
-  font-family:'Playfair Display',serif;font-weight:700;
-  font-size:clamp(4rem,14vw,9rem);line-height:1;
-  background:var(--grad-text);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;
-  filter:drop-shadow(0 12px 30px rgba(233,138,161,.35));
+
+#counter{
+    padding: 100px 20px;
+    text-align: center;
 }
-.counter-label{font-family:'Dancing Script',cursive;font-size:1.6rem;color:var(--ink-soft);margin-top:8px}
-.counter-foot{margin-top:24px;color:var(--ink-soft);font-style:italic}
+
+.counter-wrap{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.counter{
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: clamp(4rem, 14vw, 9rem);
+    line-height: 1;
+    margin: 15px 0;
+
+    /* Fallback color */
+    color: #e98aa1;
+
+    /* Gradient text */
+    background: linear-gradient(
+        135deg,
+        #ffb6c1 0%,
+        #e98aa1 35%,
+        #d4a574 65%,
+        #a07cc9 100%
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    text-shadow:
+        0 0 20px rgba(233,138,161,0.25),
+        0 0 40px rgba(233,138,161,0.15);
+
+    animation: counterGlow 3s ease-in-out infinite;
+}
+
+.counter-label{
+  font-family:'Dancing Script',cursive;
+  font-size:1.6rem;
+  color:var(--ink-soft);
+}
+
+.counter-foot{
+  margin-top:24px;
+  color:var(--ink-soft);
+  font-style:italic;
+}
+
+@keyframes counterGlow{
+    0%,100%{
+        transform: scale(1);
+        filter: drop-shadow(0 0 15px rgba(233,138,161,0.3));
+    }
+
+    50%{
+        transform: scale(1.03);
+        filter: drop-shadow(0 0 35px rgba(233,138,161,0.5));
+    }
+}
 /* ============ Letter ============ */
 .letter{
   max-width:720px;margin:0 auto;padding:clamp(28px,5vw,56px);
@@ -374,14 +432,23 @@ footer .heart{display:inline-block;animation:beat 1.4s ease-in-out infinite;colo
     </div>
   </section>
   <!-- ========== COUNTER ========== -->
-  <section id="counter">
-    <div class="counter-wrap reveal">
-      <div class="counter-label">Reasons I love</div>
-      <div class="counter" id="counter">0</div>
-      <div class="counter-label script">Aishuu</div>
-      <p class="counter-foot">And I'm still discovering more every day ❤️</p>
+<section id="counter">
+    <div class="counter-wrap">
+        <div class="counter-label">
+            Reasons I Love
+        </div>
+
+        
+
+        <div class="counter-label">
+            Aishuu ❤️
+        </div>
+
+        <p class="counter-foot">
+            And I'm still discovering more every day ❤️
+        </p>
     </div>
-  </section>
+</section>
   <!-- ========== LOVE LETTER ========== -->
   <section id="letter">
     <h2 class="section-title reveal">A letter for <span class="gradient-text">you</span></h2>
@@ -521,7 +588,7 @@ Thank you for being you.</div>
   addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeModal(); });
   /* ---------- Counter (animate when in view) ---------- */
   const counter = document.getElementById('counter');
-  const TARGET = 1247;
+  const TARGET =  0;
   let counted=false;
   new IntersectionObserver((es)=>{
     es.forEach(e=>{
